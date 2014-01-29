@@ -1,5 +1,7 @@
 Travelog::Application.routes.draw do
-root to: 'application#index'
+  root to: 'states#index'
+
+  resources :states
 
   devise_for :users
 end

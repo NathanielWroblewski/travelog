@@ -11,4 +11,8 @@ FactoryGirl.define do
     email
     password
   end
+
+  factory :state do
+
+  end
 end
