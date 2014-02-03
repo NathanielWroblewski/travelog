@@ -1,7 +1,8 @@
 .row
   .small-12.columns.centered.logo
-    %h1.passages passages
-    %p.lt-grey.subheader TRAVEL LOG
+    = link_to root_path do
+      %h1.passages passages
+      %p.lt-grey.subheader TRAVEL LOG
     %hr
   .small-12.columns
     %h2= @state.name.upcase
