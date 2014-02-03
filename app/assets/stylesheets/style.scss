@@ -6,6 +6,10 @@
   color: #d3d3d3;
 }
 
+.right {
+  float: right;
+}
+
 .subheader {
   font-weight:10px;
   margin-top: -10px;
@@ -35,4 +39,21 @@
 
 .passages {
   font-family: 'Cedarville Cursive', cursive;
+}
+
+.experience {
+  margin-bottom: 50px;
+}
+
+.navs {
+  font-weight:10px;
+  margin-top: -10px;
+  letter-spacing: 0.6em;
+  margin-bottom: 50px;
+
+  a {
+    &:hover {
+      color: black;
+    }
+  }
 }

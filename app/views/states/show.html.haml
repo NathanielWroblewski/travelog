@@ -7,6 +7,17 @@
   .small-12.columns
     %h2= @state.name.upcase
   - @state.experiences.find_each do |experience|
-    .small-12.columns
+    .small-12.columns.experience
       = image_tag cloudfront(experience.photo.url)
-      = experience.text
+      %br
+      %br
+      - if experience.location && experience.taken_at
+        %h3.dr-grey
+          #{experience.location.upcase}
+          %span.taken_at.lt-grey.right
+            #{experience.taken_at.strftime('%m/%d/%Y')}
+      %p= experience.text
+  .small-12.columns.centered.navs.lt-grey
+    =link_to 'TOP', '#', class: 'lt-grey'
+    |
+    =link_to 'HOME', root_path, class: 'lt-grey'
