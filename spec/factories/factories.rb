@@ -13,6 +13,15 @@ FactoryGirl.define do
   end
 
   factory :state do
+    name 'California'
+    abbr 'CA'
+    visited true
+  end
 
+  factory :experience do
+    text 'I set a course for winds of fortune'
+    location 'San Francsico, CA'
+    taken_at Time.now
+    state
   end
 end

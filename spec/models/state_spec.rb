@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+describe State, 'associations' do
+  it { expect(subject).to have_many(:experiences) }
+end
+
 describe State, '.visited' do
   it 'returns all visited states' do
     visited   = create(:state, visited: true)
