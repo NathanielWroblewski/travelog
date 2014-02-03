@@ -1,6 +1,17 @@
 .row
+  .small-12.columns.centered.logo
+    %h1.passages passages
+    %p.lt-grey.subheader TRAVEL LOG
+    %hr
   .small-12.columns
-    %ul
-      - @states.each do |state|
-        %li
-          = link_to state.name, state
+    = render 'us_states'
+
+- content_for :javascript do
+  :coffee
+    visited_states = #{@states}
+    for state in visited_states
+      $('#' + state).attr 'class', 'visited state'
+
+    $('.visited').on 'click', ->
+      state_abbr = $(@).attr 'id'
+      window.location.href = '/state/' + state_abbr

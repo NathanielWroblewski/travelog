@@ -1,0 +1,38 @@
+.centered {
+  text-align: center;
+}
+
+.lt-grey {
+  color: #d3d3d3;
+}
+
+.subheader {
+  font-weight:10px;
+  margin-top: -10px;
+  letter-spacing: 0.6em;
+}
+
+.state {
+  fill: #f8f8f8;
+  stroke: #fff;
+  stroke-width: 0.75;
+  stroke-opacity: 1;
+}
+
+.visited {
+  fill: #e3e3e3;
+
+  &:hover {
+    fill: #d3d3d3;
+    cursor: pointer;
+  }
+}
+
+.logo {
+  margin-top: 75px;
+  margin-bottom: 50px;
+}
+
+.passages {
+  font-family: 'Cedarville Cursive', cursive;
+}

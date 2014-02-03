@@ -3,5 +3,7 @@ Travelog::Application.routes.draw do
 
   resources :states
 
+  get 'state/:abbr', to: 'states#show'
+
   devise_for :users
 end
