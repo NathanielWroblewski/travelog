@@ -6,6 +6,6 @@ env:
 script:
   - bundle exec rake db:migrate
   - bundle exec rake db:test:prepare
-  - bundle exec rake spec
+  - bundle exec rspec spec
 before_script:
   - bundle exec rake db:create RAILS_ENV=test
