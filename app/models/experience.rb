@@ -4,7 +4,8 @@ class Experience < ActiveRecord::Base
 
   has_attached_file :photo,
                     storage: :s3,
-                    s3_credentials: Proc.new{|a| a.instance.s3_credentials }
+                    s3_credentials: Proc.new{|a| a.instance.s3_credentials },
+                    convert_options: { all: '-auto-orient' }
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
   def s3_credentials
