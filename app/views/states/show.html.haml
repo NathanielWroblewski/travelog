@@ -8,6 +8,5 @@
     %h2= @state.name.upcase
   - @state.experiences.find_each do |experience|
     .small-12.columns
-      = image_tag experience.photo.url
+      = image_tag cloudfront(experience.photo.url)
       = experience.text
-
