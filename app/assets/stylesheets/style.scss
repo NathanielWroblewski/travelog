@@ -58,3 +58,12 @@
     }
   }
 }
+
+.trip-image {
+  opacity: 0;
+  transition: opacity .6s ease-in;
+}
+
+.trip-caption {
+  display: none;
+}

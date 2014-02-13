@@ -7,16 +7,26 @@
     %h2= @state.name.upcase
   - @state.experiences.find_each do |experience|
     .small-12.columns.experience
-      = image_tag cloudfront(experience.photo.url)
+      = image_tag "http://#{ENV['CLOUDFRONT_DOMAIN']}.cloudfront.net/anchors-a-grey.jpg", class: 'trip-image', data: {'src' => cloudfront(experience.photo.url)}
+      %noscript
+        = image_tag cloudfront(experience.photo.url)
       %br
       %br
-      - if experience.location && experience.taken_at
-        %h3.dr-grey
-          #{experience.location.upcase}
-          %span.taken_at.lt-grey.right
-            #{experience.taken_at.strftime('%m/%d/%Y')}
-      %p= experience.text
+      .trip-caption
+        - if experience.location && experience.taken_at
+          %h3.dr-grey
+            #{experience.location.upcase}
+            %span.taken_at.lt-grey.right
+              #{experience.taken_at.strftime('%m/%d/%Y')}
+        %p= experience.text
   .small-12.columns.centered.navs.lt-grey
     =link_to 'TOP', '#', class: 'lt-grey'
     |
     =link_to 'HOME', root_path, class: 'lt-grey'
+
+= content_for :javascript do
+  :coffee
+    $('.trip-image').unveil 200, ->
+      $(@).load ->
+        @style.opacity = 1
+        $('.trip-caption').fadeIn 600
