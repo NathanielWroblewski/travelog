@@ -5,7 +5,7 @@
       %p.lt-grey.subheader TRAVEL LOG
   .small-12.columns
     %h2= @state.name.upcase
-  - @state.experiences.find_each do |experience|
+  - @experiences.find_each do |experience|
     .small-12.columns.experience
       = image_tag "http://#{ENV['CLOUDFRONT_DOMAIN']}.cloudfront.net/anchors-a-grey.jpg", class: "trip-image #{orientation(experience.rotation)}", data: {'src' => cloudfront(experience.photo.url)}
       %noscript
