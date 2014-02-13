@@ -1,4 +1,5 @@
 class StatesController < ApplicationController
+  helper ExperienceHelper
 
   def index
     @states = State.visited.pluck(:abbr)
