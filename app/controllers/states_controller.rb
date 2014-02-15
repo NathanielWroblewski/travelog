@@ -13,7 +13,7 @@ class StatesController < ApplicationController
 
   def edit
     @state = State.find_by(abbr: params[:id])
-    @experiences = @state.experiences
+    @experiences = @state.experiences.order(:sorted_position)
   end
 
   def update

@@ -5,11 +5,22 @@
       %p.lt-grey.subheader TRAVEL LOG
   .small-12.columns
     %h2= @state.name.upcase
-  - @experiences.find_each do |experience|
+  .small-12.columns.experience
+    - exp = @experiences.first
+    = image_tag cloudfront(exp.photo.url(:large)), class: "#{orientation(exp.rotation)}"
+    %br
+    %br
+    - if exp.location && exp.taken_at
+      %h3.dr-grey
+        #{exp.location.upcase}
+        %span.taken_at.lt-grey.right
+          #{exp.taken_at.strftime('%m/%d/%Y')}
+    %p= exp.text
+  - @experiences[1..-1].each do |experience|
     .small-12.columns.experience
-      = image_tag "http://#{ENV['CLOUDFRONT_DOMAIN']}.cloudfront.net/anchors-a-grey.jpg", class: "trip-image #{orientation(experience.rotation)}", data: {'src' => cloudfront(experience.photo.url)}
+      = image_tag cloudfront('/anchors-a-grey.jpg'), class: "trip-image #{orientation(experience.rotation)}", data: {'src' => cloudfront(experience.photo.url(:large))}
       %noscript
-        = image_tag cloudfront(experience.photo.url)
+        = image_tag cloudfront(experience.photo.url(:large))
       %br
       %br
       .trip-caption
@@ -29,4 +40,4 @@
     $('.trip-image').unveil 200, ->
       $(@).load ->
         @style.opacity = 1
-        $('.trip-caption').fadeIn 600
+        $('.trip-caption').css 'opacity', 1

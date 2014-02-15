@@ -3,6 +3,7 @@ class Experience < ActiveRecord::Base
   belongs_to :state
 
   has_attached_file :photo,
+                    styles: { large: '970x' },
                     storage: :s3,
                     s3_credentials: Proc.new{|a| a.instance.s3_credentials },
                     convert_options: { all: '-auto-orient' }
