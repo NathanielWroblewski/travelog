@@ -68,3 +68,13 @@
   opacity: 0;
   transition: opacity .6s ease-in;
 }
+
+.mobile-listing {
+  list-style: none;
+
+  a {
+    &:hover {
+      color: black;
+    }
+  }
+}

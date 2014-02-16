@@ -3,7 +3,7 @@ class StatesController < ApplicationController
   before_filter :authenticate_admin, only: [:edit, :update]
 
   def index
-    @states = State.visited.pluck(:abbr)
+    @states = State.visited
   end
 
   def show

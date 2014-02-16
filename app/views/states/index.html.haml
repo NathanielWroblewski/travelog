@@ -4,13 +4,43 @@
     %p.lt-grey.subheader TRAVEL LOG
   .small-12.columns
     = render 'us_states'
+  .small-12.columns.show-for-small
+    %h3.centered VISITED STATES
+    %ul.mobile-listing
+      - @states.order(:name).each do |state|
+        %hr
+        %li.centered
+          %p
+            = link_to state, class: 'lt-grey' do
+              = state.name.upcase
 
 - content_for :javascript do
   :coffee
-    visited_states = #{@states}
+    visited_states = #{@states.pluck(:abbr)}
     for state in visited_states
       $('#' + state).attr 'class', 'visited state'
 
     $('.visited').on 'click', ->
       state_abbr = $(@).attr 'id'
       window.location.href = '/state/' + state_abbr
+
+    resizeMap = (e,d, x,s) ->
+      if Modernizr.mq 'only screen and (max-width: 640px)'
+        $('svg').attr
+          'viewBox': '0 0 1000 700'
+          'height': 300
+          'width': ($(window).width() - 50)
+      else if Modernizr.mq 'only screen and (max-width: 1025px)'
+        $('svg').attr
+          'viewBox': '0 0 1000 700'
+          'height': 500
+          'width': $(window).width()
+      else
+        $('svg').attr
+          'viewBox': '0 0 1000 700'
+          'width': '959'
+          'height': '593'
+
+    resizeMap()
+
+    $(window).on 'resize', resizeMap
