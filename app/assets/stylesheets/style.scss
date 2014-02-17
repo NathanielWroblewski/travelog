@@ -10,40 +10,67 @@
   float: right;
 }
 
-.subheader {
-  font-weight:10px;
-  margin-top: -20px;
-  letter-spacing: 1em;
-  font-size: 16px;
-}
-
-.state {
-  fill: #f8f8f8;
-  stroke: #fff;
-  stroke-width: 0.75;
-  stroke-opacity: 1;
-}
-
-.visited {
-  fill: #e3e3e3;
-
-  &:hover {
-    fill: #d3d3d3;
-    cursor: pointer;
-  }
+ul {
+  list-style: none;
 }
 
 .logo {
   margin-bottom: 50px;
   font-size: 32px;
+
+  .passages {
+    font-family: 'Cedarville Cursive', cursive;
+  }
+  .subheader {
+    font-weight:10px;
+    margin-top: -20px;
+    letter-spacing: 1em;
+    font-size: 16px;
+  }
 }
 
-.passages {
-  font-family: 'Cedarville Cursive', cursive;
+#states-index {
+  .state {
+    fill: #f8f8f8;
+    stroke: #fff;
+    stroke-width: 0.75;
+    stroke-opacity: 1;
+  }
+
+  .visited {
+    fill: #e3e3e3;
+
+    &:hover {
+      fill: #d3d3d3;
+      cursor: pointer;
+    }
+  }
+  .mobile-listing {
+    a {
+      &:hover {
+        color: black;
+      }
+    }
+  }
+  .about {
+    font-size: 10px;
+  }
 }
 
-.experience {
-  margin-bottom: 50px;
+#states-show {
+  .experience {
+    margin-bottom: 50px;
+  }
+
+  .trip-image {
+    opacity: 0;
+    transition: opacity .6s ease-in;
+  }
+
+  .trip-caption {
+    opacity: 0;
+    transition: opacity .6s ease-in;
+  }
 }
 
 .navs {
@@ -59,21 +86,31 @@
   }
 }
 
-.trip-image {
-  opacity: 0;
-  transition: opacity .6s ease-in;
-}
+#about-page {
+  .banner {
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 100px;
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      margin-bottom: 20px;
+    }
 
-.trip-caption {
-  opacity: 0;
-  transition: opacity .6s ease-in;
-}
+    h2 {
+      margin-bottom: 0;
+      padding-top: 50px;
+    }
 
-.mobile-listing {
-  list-style: none;
+    li {
+      display: inline;
 
-  a {
-    &:hover {
+      &:not(:first-child) {
+        padding-left: 7px;
+      }
+    }
+
+    a:hover {
       color: black;
     }
   }

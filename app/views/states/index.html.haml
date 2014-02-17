@@ -13,4 +13,9 @@
           %p
             = link_to "state/#{state.abbr}", class: 'lt-grey' do
               = state.name.upcase
+  .small-12.columns.navs.hide-for-small.centered{style: 'margin-bottom: 20px;'}
+    %ul
+      %li
+        %p.about
+          = link_to '© 2014 NATHANIEL WROBLEWSKI', about_path, class: 'lt-grey'
   %div{data: {'visited-states' => @states.pluck(:abbr)}}

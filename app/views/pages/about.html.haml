@@ -1,17 +1,30 @@
-.row
-  .small-12.columns
-
+.row#about-page
+  .small-12.columns.banner
     %hr
-    .small-2-columns
-      = image_tag '', class: 'circle'
-    .small-10.columns
+    .large-3.columns
+      = image_tag "http://#{ENV['CLOUDFRONT_DOMAIN']}.cloudfront.net/profile.jpeg"
+    .large-9.columns
       %h2 NATHANIEL WROBLEWSKI
-      %p
-        %strong
-          Web Developer
-        San Francisco, CA
-        http://nathanielwroblewski.github.io
+      %ul
+        %li
+          %strong
+            Web Developer
+        %li.lt-grey
+          %em
+            San Francisco, CA
+        %li
+          %em
+            = link_to 'http://nathanielwroblewski.github.io', 'http://nathanielwroblewski.github.io', class: 'lt-grey'
     %hr
-    %p
-      = image_tag '', class: ''
+  .small-12.columns
+    .large-7.columns.large-offset-3
+      %br
+      %p
+        In 2013, after graduating college, I quit my job, I sold everything I owned, and I left my friends and family behind to move to San Francisco and try my hand at computer programming, a profession I'd never been exposed to before.  The journey West proved to be one of the greatest experiences in my life, and it was there that my passion for travelling was born.
+      %p
+        This site is a reminder of those experiences and a reminder to keep travelling.  My intention is to keep the site pretty minimalist, a reflection of how I prefer to travel, but despite its simplicity, I hope the stories captured here can inspire others to live their dreams and to live adventurously.
+      %br
+      %br
+  .small-12.columns.centered.navs.lt-grey
+    = link_to 'BACK', root_path, class: 'lt-grey'
 
