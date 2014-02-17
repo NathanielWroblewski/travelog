@@ -1,4 +1,4 @@
-.row
+.row#states-show
   .small-12.columns.centered.logo
     = link_to root_path do
       %h1.passages passages
@@ -34,10 +34,3 @@
     = link_to 'TOP', '#', class: 'lt-grey'
     |
     = link_to 'HOME', root_path, class: 'lt-grey'
-
-= content_for :javascript do
-  :coffee
-    $('.trip-image').unveil 200, ->
-      $(@).load ->
-        @style.opacity = 1
-        $('.trip-caption').css 'opacity', 1

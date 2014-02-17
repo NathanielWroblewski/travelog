@@ -6,6 +6,7 @@ Travelog::Application.routes.draw do
 
   get 'state/:abbr', to: 'states#show'
   post 'states/:id', to: 'states#update'
+  get 'about', to: 'pages#about', as: :about
 
   devise_for :users
 end

@@ -1,4 +1,4 @@
-.row
+.row#states-edit
   .small-twelve.columns
     %ul.sortable
       - @experiences.each do |experience|
@@ -6,16 +6,5 @@
           = image_tag cloudfront(experience.photo.url), style: 'height:150px;width:200px;'
     .button.submit-sortable
       Submit
-
-= content_for :javascript do
-  :coffee
-    $ ->
-      $('.sortable').sortable()
-
-      $('.submit-sortable').on 'click', ->
-        ordering = _.map($('.trip-img'), (e,i) -> [i, $(e).data('id')])
-        $.post("/states/#{@state.abbr}",
-          data: JSON.stringify(ordering)
-        ).success (response) ->
-          if response.success then alert 'updated' else alert 'error'
+  %div{data: {'state-abbr' => @state.abbr}}
 
